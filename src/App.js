@@ -2,40 +2,35 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
+import {Route, Link} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+
+import Login from './Login'
+import Signin from './Signin'
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      allPlaces: [],
+      name: '',
+      username: '',
+      password: '',
+      apiDataLoaded: false
     }
   }
-  componentDidMount = () => {
-    this.getPlaces();
-  }
-  getPlaces = async () => {
-    const response = await axios.get('http://localhost:3001/places');
-    this.setState({
-      allPlaces: response.data,
-    })
-  }
+
   render() {
-    const allPlaces = this.state.allPlaces.map((place) => {
-      // console.log(place.name)
-      return (
-        <div>
-          <h3>{place.name}</h3>
-          <img src={place.img} alt='city' />
-          <p>
-            {place.description}
-          </p>
-        </div>
-      );       
-    })
     return (
       <div className="App">
-        <h1>Travel Cheap App for the non-tourist</h1>
-        {allPlaces}
+        <h1>Welcome to Cheap Travel (non-tourist)</h1>
+        <Link to="/login">Login</Link>
+        <Route path="/login" render={() => (
+            <Login />
+          )} />
+        <Link to="/signin">Signin</Link>
+        <Route path="/signin" render={() => (
+            <Signin />
+        )} />
       </div>
     );
   }
