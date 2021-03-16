@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import {Route, Link} from 'react-router-dom';
 import axios from 'axios';
+import Profile2 from './Profile2'
+
+
+
 
 class Signin extends Component {
   constructor(props) {
@@ -19,20 +23,11 @@ class Signin extends Component {
     });
   };
 
-  signin = async (e) => {
-    e.preventDefault();
-    const data = {
-      name: this.state.name,
-      username: this.state.username,
-      password: this.state.password,
-    };
-    console.log(data)
-    const response = await axios.post('http://localhost:3001/users/signup', data);
-  }
+ 
 
   render() {
     return (
-        <form onSubmit={this.signin}>
+        <form onSubmit={(e) => this.props.signin(e, this.state)}>
          <input
             name='name'
             type='text'

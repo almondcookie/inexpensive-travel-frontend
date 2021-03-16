@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Route, Link, withRouter} from 'react-router-dom';
+import {Route, Link} from 'react-router-dom';
 import axios from 'axios';
 
 import Profile from './Profile'
@@ -20,20 +20,10 @@ class Login extends Component {
     });
   };
 
-  login = async (e) => {
-    e.preventDefault();
-    const data = {
-      username: this.state.username,
-      password: this.state.password,
-    };
-    console.log(data)
-    const response = await axios.post('http://localhost:3001/users/login', data);
-    this.props.history.push('/Profile');
-  }
 
   render() {
     return (
-        <form onSubmit={this.login}>
+        <form onSubmit={(e) => this.props.login(e, this.state)}>
           <input
             name='username'
             type='text'
@@ -56,4 +46,4 @@ class Login extends Component {
 }
 
 // export default Login;
-export default withRouter(Login)
+export default (Login)
