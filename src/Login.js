@@ -11,6 +11,7 @@ class Login extends Component {
       username: '',
       password: ''
     }
+    console.log("login constructor")
   }
  
   loginOnChange = (e) => {
@@ -23,6 +24,7 @@ class Login extends Component {
 
   render() {
     return (
+      <div>
         <form onSubmit={(e) => this.props.login(e, this.state)}>
           <input
             name='username'
@@ -40,6 +42,7 @@ class Login extends Component {
           />
           <input type='submit' value='Login' />
         </form>
+        </div>
         // {allPlaces}
     );
   }

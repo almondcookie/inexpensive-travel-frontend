@@ -27,8 +27,8 @@ class App extends Component {
     },
       thePlaces: [],
       apiDataLoaded: false, 
-      loggedIn: true,
-      signedIn: true
+      // loggedIn: true,
+      // signedIn: true
     }
   }
   componentDidMount = () => {
@@ -44,24 +44,25 @@ class App extends Component {
 
   login = async (e, user) => {
     e.preventDefault();
-    console.log(`user.username ${user.username}`)
+    // console.log(`user.username ${user.username}`)
     const data = {
       username: user.username,
       password: user.password,
     };
-    this.state.loggedIn = false
-    this.state.signedIn = false
-    console.log(`before post ${data.username}`)
+
+    // this.state.loggedIn = false
+    // this.state.signedIn = false
+    // console.log(`before post ${data.username}`)
     const response = await axios.post('http://localhost:3001/users/login', data);
-    console.log("after post")
-    console.log(`response.data: ${response.data}`)
+    // console.log("after post")
+    // console.log(`response.data: ${response.data}`)
     const foundUserId = response.data.user;
     if (response) {
       this.state.user.username = user.username;
       this.state.user.password = user.password;
     }
     const response2 = await axios.get(`http://localhost:3001/users/profile/${foundUserId}`);
-    this.props.history.push(`/Profile/${foundUserId}`);
+    // this.props.history.push(`/Profile/${foundUserId}`);
   }
 
   signin = async (e, user) => {
@@ -72,8 +73,8 @@ class App extends Component {
       password: user.password,
     };
     console.log(data)
-    this.state.signedIn = false;
-    this.state.loggedIn = false;
+    // this.state.signedIn = false;
+    // this.state.loggedIn = false;
     const response = await axios.post('http://localhost:3001/users/signup', data);
     this.props.history.push('/Profile2');
   }
@@ -86,42 +87,38 @@ class App extends Component {
     })
   };
 
-/* Steps for login 
-- The Welcome is displayed with the login link
-- The link will route the user to login.js along with the login method as a parameter
-- the login.js renders a from.
-  -The form sets the state for username that was entered
-  - Once the form is submitted, the backend posting the URL and the username that was entered
-  - Apon return, the Profile page is called/displayed
-*/
-
   render() {
     return (
       <div className="App">
-        <h1>Welcome to Cheap Travel (non-tourist)</h1>
+        {/* <h1>Welcome to Cheap Travel (non-tourist)</h1> */}
+      <nav>
+        {/* {this.state.loggedIn && <nav><Link to="/login">Login</Link></nav>} */}
+        <NavLink to="/login">Login</NavLink>
+ 
+        {/* {this.state.signedIn && <nav><Link to="/signin">Signin</Link></nav>} */}
+        <NavLink to="/signin">SignOn</NavLink>
 
-        {this.state.loggedIn && <nav><Link to="/login">Login</Link></nav>}
-        {/* <Link to="/login">Login</Link> */}
+        <NavLink to="/placeslist">Travel List</NavLink>
+
+        <NavLink to="/chosenplaces">Dreams Coming True</NavLink>
+      </nav>
+        
         <Route path="/login" render={() => (
             <Login login={this.login}/>
-          )} />
+        )} />
 
-        {this.state.signedIn && <nav><Link to="/signin">Signin</Link></nav>}
-        {/* <nav><Link to="/signin">Signin</Link></nav> */}
         <Route path="/signin" render={() => (
             <Signin signin={this.signin}/>
         )} />
 
-        <nav><Link to="/placeslist">Travel List</Link></nav>
         <Route path="/placeslist" render={() => (
             <PlacesList placeslist={this.state.thePlaces}/>
         )} />
 
         <Route path="/placedetails/:name" render={(routerProps) => (
             <PlaceDetails thePlaces={this.state.thePlaces} addAPlace={this.addAPlace} {...routerProps}/>
-          )} />
+        )} />
 
-        <nav><Link to="/chosenplaces">Dreams Coming True</Link></nav>
         <Route path="/chosenplaces" render={(routerProps) => (
           <ChosenPlaces chosenPlaces={this.state.user.chosenPlaces} {...routerProps} />
         )} />
