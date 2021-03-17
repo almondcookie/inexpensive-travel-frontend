@@ -76,6 +76,15 @@ class App extends Component {
     const response = await axios.post('http://localhost:3001/users/signup', data);
     this.props.history.push('/Profile2');
   }
+
+  addAPlace = (foundPlace) => {
+    const addToChosenList = this.state.user.chosenPlaces;
+    addToChosenList.push(foundPlace);
+    this.setState({
+      chosenPlaces: addToChosenList
+    })
+  };
+
 /* Steps for login 
 - The Welcome is displayed with the login link
 - The link will route the user to login.js along with the login method as a parameter
@@ -106,8 +115,8 @@ class App extends Component {
             <PlacesList placeslist={this.state.thePlaces}/>
         )} />
 
-        <Route path="/placedetails" render={() => (
-            <PlaceDetails/>
+        <Route path="/placedetails/:name" render={(routerProps) => (
+            <PlaceDetails thePlaces={this.state.thePlaces} addAPlace={this.addAPlace} {...routerProps}/>
           )} />
 
         <Route path="/Profile" render={() => (

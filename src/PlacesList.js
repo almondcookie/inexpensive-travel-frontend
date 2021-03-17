@@ -8,8 +8,8 @@ const PlacesList = props => {
         <div className="list-arrange" key={place.id}>
           <div className="list-image-text-wrapper">
             {/* <Link to={`/places/${place.id}`}> */}
-            <Link to={`/placedetails`}>
-              <img src={place.link} alt="image" />
+            <Link to={`/placedetails/${place.name}`}>
+              {/* <img src={place.link} alt="image" /> */}
               <h2 className="list-image-text">{place.name}</h2>
             </Link>
           </div>
