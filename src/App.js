@@ -9,6 +9,7 @@ import Login from './Login';
 import Signin from './Signin';
 import PlacesList from './PlacesList';
 import PlaceDetails from './PlaceDetails';
+import ChosenPlaces from './ChosenPlaces';
 import Profile from './Profile';
 import Profile2 from './Profile2';
 
@@ -106,6 +107,7 @@ class App extends Component {
           )} />
 
         {this.state.signedIn && <nav><Link to="/signin">Signin</Link></nav>}
+        {/* <nav><Link to="/signin">Signin</Link></nav> */}
         <Route path="/signin" render={() => (
             <Signin signin={this.signin}/>
         )} />
@@ -118,6 +120,11 @@ class App extends Component {
         <Route path="/placedetails/:name" render={(routerProps) => (
             <PlaceDetails thePlaces={this.state.thePlaces} addAPlace={this.addAPlace} {...routerProps}/>
           )} />
+
+        <nav><Link to="/chosenplaces">Dreams Coming True</Link></nav>
+        <Route path="/chosenplaces" render={(routerProps) => (
+          <ChosenPlaces chosenPlaces={this.state.user.chosenPlaces} {...routerProps} />
+        )} />
 
         <Route path="/Profile" render={() => (
           <Profile thePlaces={this.state}/>
