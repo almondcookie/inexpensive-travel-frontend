@@ -5,6 +5,7 @@ import './App.css';
 import {Route, Link, withRouter} from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 
+import Home from './Home'
 import Login from './Login';
 import Signin from './Signin';
 import PlacesList from './PlacesList';
@@ -93,21 +94,29 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="titleDiv">
+        {/* <div className="titleDiv">
           <h1>Welcome to Cheap Travel (non-tourist)</h1>
-        </div>
+        </div> */}
         <nav class="navbar navbar-dark bg-primary">
           {/* {this.state.loggedIn && <nav><Link to="/login">Login</Link></nav>} */}
+          <NavLink to="/home">Home</NavLink>
+
+          <NavLink to="/placeslist">Travel List</NavLink>
+
+          <NavLink to="/chosenplaces">Dreams Coming True</NavLink>
+
           <NavLink to="/login">Login</NavLink>
   
           {/* {this.state.signedIn && <nav><Link to="/signin">Signin</Link></nav>} */}
           <NavLink to="/signin">SignOn</NavLink>
 
-          <NavLink to="/placeslist">Travel List</NavLink>
-
-          <NavLink to="/chosenplaces">Dreams Coming True</NavLink>
         </nav>
         <div className="Content">
+
+        <Route path="/home" render={() => (
+              <Home />
+          )} />        
+
           <Route path="/login" render={() => (
               <Login login={this.login}/>
           )} />

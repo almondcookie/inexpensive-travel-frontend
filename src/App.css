@@ -8,7 +8,9 @@ body {
 }
 
 .titleDiv {
-  margin: 2%;
+  background: transparent;
+  margin: 3%;
+  /* background-image: url('https://previews.123rf.com/images/milkos/milkos1707/milkos170703207/82631380-travel-budget-concept-money-saved-for-vacation-in-glass-jar-on-world-map-background-copy-space-bankn.jpg'); */
 }
 
 .Content {
@@ -67,18 +69,20 @@ nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  /* position: fixed; */
+  position: fixed;
   z-index: 100;
   width: 100%;
-  /* margin-top: 10px; */
+  margin-top: 5px;
   background-color: black;
+  /* margin-left: 1%;
+  margin-right: 1%; */
 }
 
 nav a{
   color: white;
   text-decoration: none;
   font-size: 20px;
-  font-family: 'Titillium Web', sans-serif;
+  /* font-family: 'Titillium Web', sans-serif; */
 }
 
 .list-type4{
