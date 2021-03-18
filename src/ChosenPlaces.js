@@ -14,6 +14,10 @@ const ChosenPlaces = (props) => {
                     <h4>${place.cost}/day Room and Board</h4>
                     </div>
                     <img className="detail-image" src={place.link} alt="image" />
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
                 </div>
             ))}
             </div>

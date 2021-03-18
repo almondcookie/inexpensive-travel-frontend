@@ -7,7 +7,6 @@ const Profile = (props) => {
     console.log(props.thePlaces)
     return (
         <div className="profileDiv">
-            <h2>Check Out Inexpensive Places To Travel - (For Non-Tourist)</h2>
             <h2>Adventures Are The Best Way To Learn!</h2>
         </div>
         // <div>

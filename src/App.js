@@ -96,7 +96,7 @@ class App extends Component {
         <div className="titleDiv">
           <h1>Welcome to Cheap Travel (non-tourist)</h1>
         </div>
-        <nav>
+        <nav class="navbar navbar-dark bg-primary">
           {/* {this.state.loggedIn && <nav><Link to="/login">Login</Link></nav>} */}
           <NavLink to="/login">Login</NavLink>
   
