@@ -4,8 +4,8 @@
 The purpose of this project was to build a full stack.  The frontend was implemented using
 React and the backend was a Postgres database which was accessed using Axios
 
-![ERD](./planning/ERD.png)
-![Wireframe](./planndin/Wireframe.png)
+[ERD](./planning/ERD.png)
+[Wireframe](./planndin/Wireframe.png)
 
 
 * User Logins in or Signs Up for an account
