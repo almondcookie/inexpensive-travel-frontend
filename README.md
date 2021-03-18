@@ -5,7 +5,7 @@ The purpose of this project was to build a full stack.  The frontend was impleme
 React and the backend was a Postgres database which was accessed using Axios
 
 ![ERD](./planning/ERD.png)
-![Wireframe](./plannding/Wireframe.png)
+![Wireframe](./planndin/Wireframe.png)
 
 
 * User Logins in or Signs Up for an account
@@ -19,12 +19,13 @@ React and the backend was a Postgres database which was accessed using Axios
 
 ### Project Links
 [Frontend Repository](https://github.com/almondcookie/inexpensive-travel-frontend)
+
 [Backend Repository](https://github.com/almondcookie/inexpensive-travel-backend)
 
 
-NEED TO VERIFY FRONTEND LINK
 [Published Frontend](https://inexpensive-travel-frontend.surge.sh)
-[Pubished Backend](https://inexpensive-travel-backend.herokuapp.com)
+
+[Published Backend](https://inexpensive-travel-backend.herokuapp.com)
 
 ### Technology Used
 * React
@@ -43,5 +44,5 @@ Struggled with finding the correct end point for gets.  I included console.log t
 Had to change the scope of the project to meet the deadline
 
 ### User Stories
-![User Stories](./planning/userstories.md)
+[User Stories](./planning/userstories.md)
 
