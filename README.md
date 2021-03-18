@@ -5,6 +5,7 @@ The purpose of this project was to build a full stack.  The frontend was impleme
 React and the backend was a Postgres database which was accessed using Axios
 
 [ERD](./planning/ERD.png)
+
 [Wireframe](./planndin/Wireframe.png)
 
 
