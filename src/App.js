@@ -37,7 +37,7 @@ class App extends Component {
   };
 
   getPlaces = async () => {
-    const response = await axios.get('http://localhost:3001/places' || 'https://inexpensive-travel-backend.herokuapp.com/places')
+    const response = await axios.get('https://inexpensive-travel-backend.herokuapp.com/places')
     //const response = await axios.get('http://localhost:3001/places')
     this.setState({
       thePlaces: response.data,
@@ -55,7 +55,8 @@ class App extends Component {
     // this.state.loggedIn = false
     // this.state.signedIn = false
     // console.log(`before post ${data.username}`)
-    const response = await axios.post('http://localhost:3001/users/login' || 'https://inexpensive-travel-backend.herokuapp.com/users/login', data);
+    const response = await axios.post('https://inexpensive-travel-backend.herokuapp.com/users/login', data);
+    // const response = await axios.post('http://localhost:3001/users/login' || 'https://inexpensive-travel-backend.herokuapp.com/users/login', data);
     // console.log("after post")
     // console.log(`response.data: ${response.data}`)
     const foundUserId = response.data.user;
@@ -63,7 +64,8 @@ class App extends Component {
       this.state.user.username = user.username;
       this.state.user.password = user.password;
     }
-    const response2 = await axios.get(`http://localhost:3001/users/profile/${foundUserId}` || `https://inexpensive-travel-backend.herokuapp.com/${foundUserId}`);
+    const response2 = await axios.get(`https://inexpensive-travel-backend.herokuapp.com/${foundUserId}`);
+    // const response2 = await axios.get(`http://localhost:3001/users/profile/${foundUserId}` || `https://inexpensive-travel-backend.herokuapp.com/${foundUserId}`);
     // this.props.history.push(`/Profile/${foundUserId}`);
     this.props.history.push(`/Profile`);
   }
@@ -78,7 +80,8 @@ class App extends Component {
     console.log(data)
     // this.state.signedIn = false;
     // this.state.loggedIn = false;
-    const response = await axios.post('http://localhost:3001/users/signup' || 'https://inexpensive-travel-backend.herokuapp.com/users/signup', data);
+    const response = await axios.post('https://inexpensive-travel-backend.herokuapp.com/users/signup', data);
+    // const response = await axios.post('http://localhost:3001/users/signup' || 'https://inexpensive-travel-backend.herokuapp.com/users/signup', data);
     this.props.history.push('/Profile2');
   }
 
