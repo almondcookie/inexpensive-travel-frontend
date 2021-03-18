@@ -6,7 +6,7 @@ React and the backend was a Postgres database which was accessed using Axios
 
 [ERD](./planning/ERD.png)
 
-[Wireframe](./planndin/Wireframe.png)
+[Wireframe](./planning/Wireframe.png)
 
 
 * User Logins in or Signs Up for an account
