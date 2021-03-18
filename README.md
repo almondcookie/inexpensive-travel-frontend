@@ -24,7 +24,7 @@ React and the backend was a Postgres database which was accessed using Axios
 [Backend Repository](https://github.com/almondcookie/inexpensive-travel-backend)
 
 
-[Published Frontend](https://inexpensive-travel-frontend.surge.sh)
+[Published Frontend](http://inexpensive-travel-frontend.surge.sh)
 
 [Published Backend](https://inexpensive-travel-backend.herokuapp.com)
 
