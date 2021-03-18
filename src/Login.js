@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import {Route, Link} from 'react-router-dom';
 import axios from 'axios';
 
-import Profile from './Profile'
+import Profile from './Profile';
+// import './Login.css';
+import './App.css'
 
 class Login extends Component {
   constructor(props) {
@@ -24,25 +26,33 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
         <form onSubmit={(e) => this.props.login(e, this.state)}>
-          <input
-            name='username'
-            type='text'
-            placeholder='username'
-            value={this.state.username}
-            onChange={this.loginOnChange}
-          />
-          <input
-            name='password'
-            type='password'
-            placeholder='password'
-            value={this.state.password}
-            onChange={this.loginOnChange}
-          />
-          <input type='submit' value='Login' />
+          <ul className="wrapper">
+            <li className="form-row">
+              <label for="username">UserName</label>
+              <input
+                name='username'
+                type='text'
+                value={this.state.username}
+                onChange={this.loginOnChange}
+                id='username'
+              />
+          </li>
+          <li className="form-row">
+            <label for="password">Password</label>
+            <input
+              name='password'
+              type='password'
+              value={this.state.password}
+              onChange={this.loginOnChange}
+              id='password'
+            />
+          </li>
+          <li className="form-row">
+            <input type='submit' value='Login' />
+          </li>
+        </ul>
         </form>
-        </div>
         // {allPlaces}
     );
   }

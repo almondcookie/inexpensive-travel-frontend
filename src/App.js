@@ -36,7 +36,8 @@ class App extends Component {
   };
 
   getPlaces = async () => {
-    const response = await axios.get('http://localhost:3001/places')
+    const response = await axios.get('http://localhost:3001/places' || 'https://inexpensive-travel-backend.herokuapp.com/places')
+    //const response = await axios.get('http://localhost:3001/places')
     this.setState({
       thePlaces: response.data,
     });
@@ -53,7 +54,7 @@ class App extends Component {
     // this.state.loggedIn = false
     // this.state.signedIn = false
     // console.log(`before post ${data.username}`)
-    const response = await axios.post('http://localhost:3001/users/login', data);
+    const response = await axios.post('http://localhost:3001/users/login' || 'https://inexpensive-travel-backend.herokuapp.com/users/login', data);
     // console.log("after post")
     // console.log(`response.data: ${response.data}`)
     const foundUserId = response.data.user;
@@ -61,8 +62,9 @@ class App extends Component {
       this.state.user.username = user.username;
       this.state.user.password = user.password;
     }
-    const response2 = await axios.get(`http://localhost:3001/users/profile/${foundUserId}`);
+    const response2 = await axios.get(`http://localhost:3001/users/profile/${foundUserId}` || `https://inexpensive-travel-backend.herokuapp.com/${foundUserId}`);
     // this.props.history.push(`/Profile/${foundUserId}`);
+    this.props.history.push(`/Profile`);
   }
 
   signin = async (e, user) => {
@@ -75,7 +77,7 @@ class App extends Component {
     console.log(data)
     // this.state.signedIn = false;
     // this.state.loggedIn = false;
-    const response = await axios.post('http://localhost:3001/users/signup', data);
+    const response = await axios.post('http://localhost:3001/users/signup' || 'https://inexpensive-travel-backend.herokuapp.com/users/signup', data);
     this.props.history.push('/Profile2');
   }
 
@@ -87,49 +89,53 @@ class App extends Component {
     })
   };
 
+
   render() {
     return (
       <div className="App">
-        {/* <h1>Welcome to Cheap Travel (non-tourist)</h1> */}
-      <nav>
-        {/* {this.state.loggedIn && <nav><Link to="/login">Login</Link></nav>} */}
-        <NavLink to="/login">Login</NavLink>
- 
-        {/* {this.state.signedIn && <nav><Link to="/signin">Signin</Link></nav>} */}
-        <NavLink to="/signin">SignOn</NavLink>
+        <div className="titleDiv">
+          <h1>Welcome to Cheap Travel (non-tourist)</h1>
+        </div>
+        <nav>
+          {/* {this.state.loggedIn && <nav><Link to="/login">Login</Link></nav>} */}
+          <NavLink to="/login">Login</NavLink>
+  
+          {/* {this.state.signedIn && <nav><Link to="/signin">Signin</Link></nav>} */}
+          <NavLink to="/signin">SignOn</NavLink>
 
-        <NavLink to="/placeslist">Travel List</NavLink>
+          <NavLink to="/placeslist">Travel List</NavLink>
 
-        <NavLink to="/chosenplaces">Dreams Coming True</NavLink>
-      </nav>
-        
-        <Route path="/login" render={() => (
-            <Login login={this.login}/>
-        )} />
+          <NavLink to="/chosenplaces">Dreams Coming True</NavLink>
+        </nav>
+        <div className="Content">
+          <Route path="/login" render={() => (
+              <Login login={this.login}/>
+          )} />
 
-        <Route path="/signin" render={() => (
-            <Signin signin={this.signin}/>
-        )} />
+          <Route path="/signin" render={() => (
+              <Signin signin={this.signin}/>
+          )} />
 
-        <Route path="/placeslist" render={() => (
-            <PlacesList placeslist={this.state.thePlaces}/>
-        )} />
+          <Route path="/placeslist" render={() => (
+              <PlacesList placeslist={this.state.thePlaces}/>
+          )} />
 
-        <Route path="/placedetails/:name" render={(routerProps) => (
-            <PlaceDetails thePlaces={this.state.thePlaces} addAPlace={this.addAPlace} {...routerProps}/>
-        )} />
+          <Route path="/placedetails/:name" render={(routerProps) => (
+              <PlaceDetails thePlaces={this.state.thePlaces} addAPlace={this.addAPlace} {...routerProps}/>
+          )} />
 
-        <Route path="/chosenplaces" render={(routerProps) => (
-          <ChosenPlaces chosenPlaces={this.state.user.chosenPlaces} {...routerProps} />
-        )} />
+          <Route path="/chosenplaces" render={(routerProps) => (
+            <ChosenPlaces chosenPlaces={this.state.user.chosenPlaces} {...routerProps} />
+          )} />
 
-        <Route path="/Profile" render={() => (
-          <Profile thePlaces={this.state}/>
-        )} />
+          <Route path="/Profile" render={() => (
+            <Profile thePlaces={this.state}/>
+          )} />
 
-        <Route path="/Profile2" render={() => (
-          <Profile2 />
-        )} />
+          <Route path="/Profile2" render={() => (
+            <Profile2 />
+          )} />
+        </div>
       </div>
     );
   }
