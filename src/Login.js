@@ -3,7 +3,6 @@ import {Route, Link} from 'react-router-dom';
 import axios from 'axios';
 
 import Profile from './Profile';
-// import './Login.css';
 import './App.css'
 
 class Login extends Component {
