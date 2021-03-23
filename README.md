@@ -18,6 +18,10 @@ React and the backend was a Postgres database which was accessed using Axios
 * The frontend app was deployed using Surge
 * The backend was deployed using Heroku
 
+### To Run The App
+* heroku
+* http://inexpensive-travel-frontend.surge.sh
+
 ### Project Links
 [Frontend Repository](https://github.com/almondcookie/inexpensive-travel-frontend)
 
